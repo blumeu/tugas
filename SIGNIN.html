@@ -72,9 +72,30 @@
 
         if (email === "" || password === "") {
           alert("Email dan password tidak boleh kosong!");
-        } else {
-          alert("Sign in berhasil untuk user: " + email);
         }
+        if (!email.includes("@")) {
+          alert("Email tidak valid!");
+          return false;
+        }
+        if (!email.endsWith(".com")) {
+          alert("Email harus diakhiri dengan '.com'!");
+          return false;
+        }
+        if (email.length < 5) {
+          alert("Email harus terdiri dari minimal 5 karakter!");
+          return false;
+        }
+        if (password.length < 8) {
+          alert("Password harus terdiri dari minimal 8 karakter!");
+          return false;
+        }
+        if (password.includes(" ")) {
+          alert("Password tidak boleh mengandung spasi!");
+          return false;
+        }
+
+        alert("Sign in successful!");
+        return true;
       });
     </script>
   </body>
